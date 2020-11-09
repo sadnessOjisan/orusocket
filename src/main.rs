@@ -19,7 +19,20 @@ fn main() {
 }
 
 
+
 fn handle_client(mut stream: TcpStream) {
+    let clientCode = "function () {
+    alert('hey')
+  var ws = new WebSocket('ws://localhost:3000/', ['test', 'chat']);
+  // var ws = new WebSocket('ws://localhost:3000/', 'test');
+  ws.onopen = function() {
+    console.log(ws);
+    ws.send('test');
+    ws.onmessage = function(message) {
+      console.log(message.data);
+    };
+  }
+}";
     let mut buf = [0 ;4096];
 
     stream.read(&mut buf).unwrap();
@@ -28,7 +41,7 @@ fn handle_client(mut stream: TcpStream) {
     req.parse(&buf).unwrap();
     match req.path {
         Some(ref path) => {
-            let mut body = "hello world";
+            let mut body = "<html><head><title>rust web socket</title><script type='text/javascript'>(".to_string() + clientCode + ")()</script></head><body>hello world!!!!!</body></html>";
             let status = "HTTP/1.1 200 OK\r\n".to_string();
             let header = status + "Content-Type: text/html; charset=UTF-8\r\n\r\n";
             let res = header + &body + "\r\n";
