@@ -1,0 +1,1 @@
+{"rustc":17941782008528629481,"features":"[]","target":11326642068420703304,"profile":18074012566298724745,"path":1036222786711178230,"deps":[[13162044883162415050,"httparse",false,362946941521900376]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/web-socket-rs-a7b45814619a0ee1/dep-bin-web-socket-rs"}}],"rustflags":[],"metadata":7206182122711743084,"config":0}
