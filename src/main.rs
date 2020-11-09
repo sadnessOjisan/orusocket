@@ -35,8 +35,13 @@ fn handle_client(mut stream: TcpStream) {
     req.parse(&buf).unwrap();
     println!("{:?}", req.headers);
     println!("{:?}", req.method);
-    let is_upgrade = req.headers.iter().find(|&&x| x.name == "Upgrade").iter().len();
-    println!("{}",is_upgrade);
+    let is_upgrade = req
+        .headers
+        .iter()
+        .find(|&&x| x.name == "Upgrade")
+        .iter()
+        .len();
+    println!("{}", is_upgrade);
     match req.path {
         Some(ref path) => {
             let mut body =
