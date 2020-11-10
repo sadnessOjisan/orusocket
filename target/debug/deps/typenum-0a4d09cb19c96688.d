@@ -1,0 +1,18 @@
+/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/deps/typenum-0a4d09cb19c96688.rmeta: /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/lib.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/bit.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/int.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/marker_traits.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/operator_aliases.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/private.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/type_operators.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/uint.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/array.rs /Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/op.rs /Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/consts.rs
+
+/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/deps/typenum-0a4d09cb19c96688.d: /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/lib.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/bit.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/int.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/marker_traits.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/operator_aliases.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/private.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/type_operators.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/uint.rs /Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/array.rs /Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/op.rs /Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/consts.rs
+
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/lib.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/bit.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/int.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/marker_traits.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/operator_aliases.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/private.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/type_operators.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/uint.rs:
+/Users/ideyuta/.cargo/registry/src/github.com-1ecc6299db9ec823/typenum-1.12.0/src/array.rs:
+/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/op.rs:
+/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/consts.rs:
+
+# env-dep:TYPENUM_BUILD_CONSTS=/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/consts.rs
+# env-dep:TYPENUM_BUILD_OP=/Users/ideyuta/Documents/100_projects/toybox/web-socket-rs/target/debug/build/typenum-51875315964a84ab/out/op.rs
