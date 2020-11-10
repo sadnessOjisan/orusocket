@@ -120,6 +120,7 @@ dependencies = [
  "base64",
  "httparse",
  "rust-crypto",
+ "rustc-serialize",
 ]
 
 [[package]]

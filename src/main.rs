@@ -1,11 +1,17 @@
 extern crate base64;
 extern crate httparse;
+extern crate rustc_serialize;
 
+use base64::{encode};
+use crypto::digest::Digest;
+use crypto::sha1::Sha1;
+use crypto::symmetriccipher::SynchronousStreamCipher;
+use std::iter::repeat;
+use rustc_serialize::base64::{STANDARD, ToBase64};
 use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::thread;
-use crypto::digest::Digest;
-use crypto::sha1::Sha1;
+
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
@@ -17,9 +23,9 @@ fn main() {
 }
 
 fn handle_client(mut stream: TcpStream) {
+    let key = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
     let clientCode = "function () {
   var ws = new WebSocket('ws://localhost:8080/', ['test', 'chat']);
-  // var ws = new WebSocket('ws://localhost:8080/', 'test');
   ws.onopen = function() {
     console.log(ws);
     ws.send('test');
@@ -36,8 +42,6 @@ fn handle_client(mut stream: TcpStream) {
     let res = req.parse(&buf).unwrap();
     if res.is_complete() {
         req.parse(&buf).unwrap();
-        println!("{:?}", req.headers);
-        println!("{:?}", req.method);
         let is_upgrade = req
             .headers
             .iter()
@@ -53,34 +57,36 @@ fn handle_client(mut stream: TcpStream) {
                 .find(|&&x| x.name == "Sec-WebSocket-Key")
                 .unwrap()
                 .value;
-            hasher.input(token_bytes);
-            let hashed_token = hasher.result_str();
+            let token_bytes_str = std::str::from_utf8(token_bytes).unwrap();
+            println!("token_bytes_str: {:?}", token_bytes_str);
+            let joined_token = &*(token_bytes_str.to_string() + key);
+            let mut joined_token_byte = joined_token.as_bytes().to_vec();
+            hasher.result(&mut joined_token_byte[..]);
+            let based = encode(joined_token_byte.to_base64(STANDARD));
 
-            println!("{:?}", hashed_token);
+            // let mut bytes = repeat(0u8).take(hasher.output_bytes()).collect();
+            // hasher.result(&mut bytes[..]);
+            // println!("{}", bytes.to_base64(STANDARD));
 
-            let based = base64::encode(hashed_token);
-            println!("{:?}", based);
-            println!("upgrade");
-            let status = "HTTP/1.1 101 Switching Protocols";
-            let header = format!(
-                "{}{}{:?}{}",
-                status,
+
+
+
+
+            let status = "HTTP/1.1 101 Switching Protocols\r\n".to_string();
+            let header =
+                status+
                 "Upgrade: websocket
-            Connection: Upgrade
-            Sec-WebSocket-Accept: ",
-            based,
+Connection: Upgrade
+Sec-WebSocket-Accept: "+ &*based+
                 "
-            Sec-WebSocket-Protocol: chat
-                "
-            );
-            println!("{}", header);
-            let res = header + "\r\n";
+Sec-WebSocket-Protocol: chat";
+            
+            let res = header;
+            println!("res: {}", res);
             let data = res.as_bytes();
-            println!("{:?}", data);
             stream.write(data);
             return;
         }
-       
     }
     match req.path {
         Some(ref path) => {
@@ -92,6 +98,7 @@ fn handle_client(mut stream: TcpStream) {
             let status = "HTTP/1.1 200 OK\r\n".to_string();
             let header = status + "Content-Type: text/html; charset=UTF-8\r\n\r\n";
             let res = header + &body + "\r\n";
+            // println!("{}", res);
             let data = res.as_bytes();
             stream.write(data);
         }
