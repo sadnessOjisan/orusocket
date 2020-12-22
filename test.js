@@ -320,6 +320,8 @@ server.on("upgrade", function (req, socket, head) {
     sendData[5] = "test".charCodeAt(3);
 
     console.log("\n======== Sending Frame ===============");
+    console.log("sendDatasendData", sendData);
+    console.log("test.charCodeAt(3)", "test".charCodeAt(3));
     display(sendData);
 
     // send to client
