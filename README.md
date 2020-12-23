@@ -1,5 +1,7 @@
 オラの websocket, oruscket
 
+blog: https://blog.ojisan.io/rust-websocket
+
 ## dev
 
 ```
